@@ -1,19 +1,6 @@
 # Scripts for WGCNA usage
 To preprocess an expression matrix and perform Weighted Gene Co-expression Network Analysis (WGCNA). The preprocessing steps include removing low expression genes, selecting focal tissue samples, and filtering genes based on their coefficient of variation. The WGCNA script constructs a gene co-expression network, identifies gene modules, and relates them to external traits.
 
-## Prerequisites
-Ensure you have the following software and packages installed:
-
-### Python Packages
-pandas
-matplotlib
-
-### R Packages
-WGCNA
-here
-matrixStats
-dplyr
-
 ## Data Preprocessing
 
 The preprocessing script 01_datExpr_preprocessing.ipynb performs the following steps:
