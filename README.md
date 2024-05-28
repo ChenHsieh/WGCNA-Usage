@@ -3,7 +3,7 @@ To preprocess an expression matrix and perform Weighted Gene Co-expression Netwo
 
 ## Data Preprocessing
 
-The preprocessing script 01_datExpr_preprocessing.ipynb performs the following steps:
+The preprocessing script `01_datExpr_preprocessing.ipynb` performs the following steps:
 
 1. Remove Low Expression Genes:
 
@@ -24,7 +24,7 @@ Plots the number of genes passing different CV thresholds.
 The final filtered expression matrix is transposed and saved for WGCNA.
 
 ### Usage
-Run 01_datExpr_preprocessing.ipynb to preprocess the expression data. Ensure the input file data/merged_tpm_short_name.csv is available in the specified directory.
+Run `01_datExpr_preprocessing.ipynb` to preprocess the expression data. Ensure the input file data/merged_tpm_short_name.csv is available in the specified directory.
 
 ## WGCNA Analysis
 The WGCNA script 02_WGCNA.R performs the following steps:
@@ -52,7 +52,7 @@ Identifies gene modules.
 Associates gene modules with external traits or conditions.
 
 ### Usage
-Run the R script 02_WGCNA.R to perform WGCNA. Ensure the preprocessed expression matrix is available in the specified directory.
+Run the R script `02_WGCNA.R` to perform WGCNA. Ensure the preprocessed expression matrix is available in the specified directory.
 
 ## References
 Langfelder, P., & Horvath, S. (2008). WGCNA: an R package for weighted correlation network analysis. BMC Bioinformatics, 9(1), 559.
