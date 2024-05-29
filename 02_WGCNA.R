@@ -16,8 +16,8 @@ library(here)
 library(dplyr)
 library(matrixStats)
 
-input_file <- here("data", "dynamic_expression_matrix_TPM5_CV30_leaf.csv")
-soft_threshold_power <- 10
+input_file <- here("data", "dynamic_expression_matrix_TPM5_CV30_stem.csv")
+soft_threshold_power <- 14
 output_directory <- here("output")
 max_block_size <- 6000
 min_module_size <- 30
