@@ -1,7 +1,6 @@
-output/.DS_Store
-data/dynamic_expression_matrix_TPM5_CV30_leaf.csv
-data/merged_tpm_short_name.csv
-output/adj_matrix.csv
-output/module_gene_counts.csv
+output/*
+output*/*
+data/*
 .Rhistory
 .DS_Store
+TOM-block.*.RData

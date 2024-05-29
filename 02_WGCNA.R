@@ -3,7 +3,7 @@
 if (!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
 }
-BiocManager::install("WGCNA")
+BiocManager::install("WGCNA", update = TRUE, ask = FALSE)
 if (!requireNamespace("here", quietly = TRUE)) {
   install.packages("here")
 }
@@ -17,11 +17,16 @@ library(dplyr)
 library(matrixStats)
 
 input_file <- here("data", "dynamic_expression_matrix_TPM5_CV30_leaf.csv")
+soft_threshold_power <- 10
 output_directory <- here("output")
-soft_threshold_power <- 9
 max_block_size <- 6000
 min_module_size <- 30
 merge_cut_height <- 0.25
+
+# Check if the directory exists, if not, create it
+if (!file.exists(output_directory)) {
+  dir.create(output_directory)
+}
 
 datExpr <- read.csv(input_file, row.names = 1)
 # datExpr <- as.data.frame(t(datExpr))  # Transpose if necessary to have genes as columns
@@ -88,6 +93,8 @@ plotDendroAndColors(net$dendrograms[[1]], mergedColors[net$blockGenes[[1]]],
                     addGuide = TRUE, guideHang = 0.05)
 
 # connectivity table output (K)
+adjacency = adjacency(datExpr, power = soft_threshold_power)
+write.csv(adjacency, file = here(output_directory, "adj_matrix.csv"), row.names = FALSE)
 
 connectivity = intramodularConnectivity(adjacency, net$colors)
 
@@ -135,10 +142,6 @@ genes_of_interest <- c("PtXaTreH.14G131700", "PtXaTreH.10G125100", "PtXaTreH.06G
 
 module_assignments <- gene_module_mapping[gene_module_mapping$Gene %in% genes_of_interest, ]
 print(module_assignments)
-
-# export adjacency matrix directly from the expression matrix
-adjacency = adjacency(datExpr)
-write.csv(adjacency, file = here(output_directory, "adj_matrix.csv"), row.names = FALSE)
 
 
 
